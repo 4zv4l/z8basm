@@ -1,0 +1,20 @@
+start:
+    push 5
+    pop  A
+    push 2
+    pop  B
+    add  A B ; add B into A 
+    push 4
+    pop  C
+    cmp  C A
+    jmpz #end2
+    ; this is a comment
+
+
+end1:
+    push 33
+    pop B
+end2:
+    push 1
+
+    pop  B
