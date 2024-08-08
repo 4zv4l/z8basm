@@ -22,12 +22,13 @@ my %instructions = (
     'add' => 1,
     'sub' => 2,
     'push' => 3,
-    'pop' => 4,
-    'jmp' => 5,
-    'jmpz' => 6,
-    'jmpnz' => 7,
-    'cmp' => 8,
-    'brk' => 9,
+    'pushl' => 4,
+    'pop' => 5,
+    'jmp' => 6,
+    'jmpz' => 7,
+    'jmpnz' => 8,
+    'cmp' => 9,
+    'brk' => 10,
 );
 
 die "usage: $0 [code file]\n" unless $ARGV[0];
