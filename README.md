@@ -1,6 +1,6 @@
 # z8basm
 
-assembly for z8b
+assembler for z8b
 
 ## Implementation
 
