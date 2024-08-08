@@ -14,7 +14,11 @@ start:
 end1:
     push 33
     pop B
+    jmp #exit
 end2:
     push 1
 
     pop  B
+    jmp #exit
+exit:
+    brk

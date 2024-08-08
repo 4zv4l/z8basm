@@ -23,9 +23,11 @@ my %instructions = (
     'sub' => 2,
     'push' => 3,
     'pop' => 4,
-    'jmpz' => 5,
-    'jmpnz' => 6,
-    'cmp' => 7
+    'jmp' => 5,
+    'jmpz' => 6,
+    'jmpnz' => 7,
+    'cmp' => 8,
+    'brk' => 9,
 );
 
 die "usage: $0 [code file]\n" unless $ARGV[0];
@@ -89,7 +91,7 @@ for my $arr (@all) {
     my $op = sprintf "%.2x", $instructions{shift(@arr)};
     print "0x$op ";
     print $output pack("H*", $op);
-    if (exists $registers{$arr[0]}) {
+    if ($arr[0] and exists $registers{$arr[0]}) {
         if (scalar @arr == 1) {
             my $regs = "0" . (sprintf "%x", $registers{$arr[0]} || "0");
             printf "0x%s", $regs;
@@ -101,7 +103,7 @@ for my $arr (@all) {
             print $output pack("H*", $regs);
         }
     } else {
-        my $literal = sprintf "%.2x", shift(@arr);
+        my $literal = sprintf "%.2x", shift(@arr)||"00";
         print "0x$literal";
         print $output pack("H*", $literal);
     }
